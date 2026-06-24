@@ -38,7 +38,7 @@ namespace SpaceWars_Horizon_Events
             naveJogador = new NaveJogador(fundo, "nave.png");
             naveInimigo = new NaveInimigo(fundo, "naveInimigo.png", naveJogador);
         }
-
+        // dijdaisjdsa
         void DefineTamanhoForm()
         {
             Rectangle resolucao = Screen.PrimaryScreen.Bounds;
