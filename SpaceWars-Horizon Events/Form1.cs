@@ -28,7 +28,7 @@ namespace SpaceWars_Horizon_Events
             fundo.Parent = this;
             fundo.Width = Width;
             fundo.Height = Height;
-            fundo.Load("fundo.jpg");
+            fundo.Load(@"Assets\fundo.jpg");
             fundo.SizeMode = PictureBoxSizeMode.StretchImage;
             fundo.BackColor = Color.Transparent;
 
@@ -36,8 +36,8 @@ namespace SpaceWars_Horizon_Events
             gameTimer.Enabled = true;
             gameTimer.Tick += gameTimerTick;
 
-            naveJogador = new NaveJogador(fundo, "nave.png");
-            naveInimigo = new NaveInimigo(fundo, "naveInimigo.png", naveJogador);
+            naveJogador = new NaveJogador(fundo, @"Assets\nave.png");
+            naveInimigo = new NaveInimigo(fundo, @"Assets\naveInimigo.png", naveJogador);
         }
         void DefineTamanhoForm()
         {
@@ -53,7 +53,7 @@ namespace SpaceWars_Horizon_Events
 
             if (Input.KeyDown(Keys.Space) && _teclaAnterior != Keys.Space)
             {
-                Tiro tiro = new Tiro(fundo, "tiro.png", naveJogador.DirecaoX, naveInimigo);
+                Tiro tiro = new Tiro(fundo, @"Assets\tiro.png", naveJogador.DirecaoX, naveInimigo);
                 tiro.Left = naveJogador.Left + naveJogador.Width - 5;
                 tiro.Top = naveJogador.Top + (int)naveJogador.Height / 3;
 
