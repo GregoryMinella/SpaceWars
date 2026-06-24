@@ -6,6 +6,7 @@ using Projeto_Space_War_V2_;
 
 namespace SpaceWars_Horizon_Events
 {
+    //gregory, veja isso
     public partial class MainForm : Form
     {
         Timer gameTimer = new Timer();
