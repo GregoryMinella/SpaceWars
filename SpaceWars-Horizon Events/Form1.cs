@@ -11,7 +11,7 @@ namespace SpaceWars_Horizon_Events
         Timer gameTimer = new Timer();
         PictureBox fundo = new PictureBox();
         NaveJogador naveJogador;
-        NaveInimigo naveInimigo;
+        NaveInimigo naveInimigo; // Algum comentário
 
         Keys _teclaAnterior = Keys.None;
 
