@@ -6,7 +6,6 @@ using Projeto_Space_War_V2_;
 
 namespace SpaceWars_Horizon_Events
 {
-    //gregory, veja isso
     public partial class MainForm : Form
     {
         Timer gameTimer = new Timer();
@@ -25,7 +24,6 @@ namespace SpaceWars_Horizon_Events
             KeyPreview = true;
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             DefineTamanhoForm();
-            // qualquer coisa aqui para você ver kkkkkkkk
             fundo.Parent = this;
             fundo.Width = Width;
             fundo.Height = Height;
