@@ -75,7 +75,7 @@ namespace SpaceWars_Horizon_Events
                     break;
                 case Keys.D3:
                     naveJogador.tipoTiro = 3;
-                    break; // comentei
+                    break; 
                 case Keys.D4:
                     naveJogador.tipoTiro = 4;
                     break;
