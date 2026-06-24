@@ -8,10 +8,10 @@ namespace SpaceWars_Horizon_Events
 {
     public partial class MainForm : Form
     {
-        Timer gameTimer = new Timer(); //Feijão com farinha 
+        Timer gameTimer = new Timer(); 
         PictureBox fundo = new PictureBox();
         NaveJogador naveJogador;
-        NaveInimigo naveInimigo; // Algum comentário
+        NaveInimigo naveInimigo; 
 
         Keys _teclaAnterior = Keys.None;
 
@@ -38,7 +38,7 @@ namespace SpaceWars_Horizon_Events
             naveJogador = new NaveJogador(fundo, "nave.png");
             naveInimigo = new NaveInimigo(fundo, "naveInimigo.png", naveJogador);
         }
-        // dijdaisjdsa
+        // dijdaisjdsa 
         void DefineTamanhoForm()
         {
             Rectangle resolucao = Screen.PrimaryScreen.Bounds;
