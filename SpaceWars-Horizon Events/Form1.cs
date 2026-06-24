@@ -4,6 +4,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using Projeto_Space_War_V2_;
 
+
+// vitor esta dificill nada vai no vini
+
 namespace SpaceWars_Horizon_Events
 {
     public partial class MainForm : Form
