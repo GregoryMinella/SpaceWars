@@ -25,7 +25,7 @@ namespace SpaceWars_Horizon_Events
             KeyPreview = true;
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             DefineTamanhoForm();
-
+            // qualquer coisa aqui para você ver kkkkkkkk
             fundo.Parent = this;
             fundo.Width = Width;
             fundo.Height = Height;
