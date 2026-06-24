@@ -9,6 +9,7 @@ namespace Projeto_Space_War_V2_
     {
 
         public int cenario = 0;
+        public int tipoTiro = 0;
         PictureBox Fundo;
 
         public NaveJogador(PictureBox fundo, string imagemNave) : base(fundo)

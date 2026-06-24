@@ -5,8 +5,6 @@ using System.Windows.Forms;
 using Projeto_Space_War_V2_;
 
 
-// vitor esta dificill nada vai no vini
-
 namespace SpaceWars_Horizon_Events
 {
     public partial class MainForm : Form
@@ -41,7 +39,6 @@ namespace SpaceWars_Horizon_Events
             naveJogador = new NaveJogador(fundo, "nave.png");
             naveInimigo = new NaveInimigo(fundo, "naveInimigo.png", naveJogador);
         }
-        // dijdaisjdsa
         void DefineTamanhoForm()
         {
             Rectangle resolucao = Screen.PrimaryScreen.Bounds;
@@ -67,6 +64,25 @@ namespace SpaceWars_Horizon_Events
         protected override void OnKeyDown(KeyEventArgs e)
         {
             Input.KeyPressed(e.KeyCode);
+
+            switch (e.KeyCode)
+            {
+                case Keys.D1:
+                    naveJogador.tipoTiro = 1;
+                    break;
+                case Keys.D2:
+                    naveJogador.tipoTiro = 2;
+                    break;
+                case Keys.D3:
+                    naveJogador.tipoTiro = 3;
+                    break;
+                case Keys.D4:
+                    naveJogador.tipoTiro = 4;
+                    break;
+                case Keys.D0:
+                    naveJogador.tipoTiro = 0;
+                    break;
+            }
         }
 
         protected override void OnKeyUp(KeyEventArgs e)
