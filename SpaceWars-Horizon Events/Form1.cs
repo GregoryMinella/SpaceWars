@@ -8,10 +8,10 @@ namespace SpaceWars_Horizon_Events
 {
     public partial class MainForm : Form
     {
-        Timer gameTimer = new Timer();
+        Timer gameTimer = new Timer(); //Feijão com farinha 
         PictureBox fundo = new PictureBox();
         NaveJogador naveJogador;
-        NaveInimigo naveInimigo;
+        NaveInimigo naveInimigo; // Algum comentário
 
         Keys _teclaAnterior = Keys.None;
 
