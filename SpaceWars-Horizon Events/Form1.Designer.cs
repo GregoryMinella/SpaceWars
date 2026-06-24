@@ -1,6 +1,6 @@
 ﻿namespace SpaceWars_Horizon_Events
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Variável de designer necessária.
