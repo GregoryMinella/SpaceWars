@@ -54,13 +54,13 @@ namespace Projeto_Space_War_V2_
                 sentidoInimigo = -sentidoInimigo;
                 sent++;
                 if (sent > 1) sent = 0;
-                Load(@"Assets\Inimigo 1 – Eco-do-Vazio\EcoVazio" + sent + ".png");
+                Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio" + sent + ".png");
             }
 
             tiroCont++;
             if (tiroCont == 30)
             {
-                Tiro tiro = new Tiro(Fundo, @"Assets\tiroInimigo.png", -1, Alvo);
+                Tiro tiro = new Tiro(Fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\tiro(temporario)\tiro.png", -1, Alvo);
                 tiro.Left = Left - tiro.Width;
                 tiro.Top = Top + (Height / 2) - (tiro.Height / 2);
                 tiroCont = 0;

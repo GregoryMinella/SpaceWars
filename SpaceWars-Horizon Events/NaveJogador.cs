@@ -68,7 +68,7 @@ namespace Projeto_Space_War_V2_
                     Left = X_max - this.Width - 30;
                     cenario--;
                     if (cenario < 0) cenario = 2;
-                    Fundo.Load(@"Assets\fundo" + cenario + ".png"); 
+                    Fundo.Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo" + cenario + ".png"); 
                 }
             }
 
@@ -82,15 +82,15 @@ namespace Projeto_Space_War_V2_
                     Left = 0;
                     cenario++;
                     if (cenario > 2) cenario = 0;
-                    Fundo.Load(@"Assets\fundo" + cenario + ".png");
+                    Fundo.Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Fundo" + cenario + ".png");
                 }
             }
 
             if (Input.KeyDown(Keys.W)) Top -= Speed;
             if (Input.KeyDown(Keys.S)) Top += Speed;
 
-            if (Input.KeyDown(Keys.A)) Load(@"Assets\naveJogador-desativado.png");
-            if (Input.KeyDown(Keys.D)) Load(@"Assets\naveJogador-ativado.png");
+            if (Input.KeyDown(Keys.A)) Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-desativado.png");
+            if (Input.KeyDown(Keys.D)) Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-ativado.png");
         }
     }
 }

@@ -95,30 +95,118 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\fundo.jpg">
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\fundo0.png">
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\fundo1.png">
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\fundo2.png">
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\nave.png">
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\GIF\seta.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\naveInimigo.png">
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\tiro.png">
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\tiroInimigo.png">
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 2 – Sentinela Sombria\SentinelaSombria.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 3 – Caçador Gravitacional\CaçadorGravitacional.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 4 – Executor do Horizonte\ExecutorHorizonte.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\CaçadorGravitacional.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\EcoVazio0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\EcoVazio1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\ExecutorHorizonte.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador-ativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador-desativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_agua-ativado - Cópia .png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_agua-ativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_agua-desativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_fogo-ativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_fogo-desativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_terra-ativado - Cópia .png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_terra-ativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_terra-desativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_total-ativado - Cópia .png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_total-ativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_total-desativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_vento-desativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-ativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-desativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador_fogo-ativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador_fogo-desativado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\SentinelaSombria.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\seta.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\tiro%28temporario%29\tiro.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Video\introducao.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Chefe Final – Manfredo\" />
+    <Folder Include="Assets\GDD_Immeasurable Chasm Event Horizon\Video\Inimigo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
