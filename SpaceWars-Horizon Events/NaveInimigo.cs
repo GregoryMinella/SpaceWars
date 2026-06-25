@@ -54,7 +54,7 @@ namespace Projeto_Space_War_V2_
             tiroCont++;
             if (tiroCont == 30)
             {
-                Tiro tiro = new Tiro(Fundo, "tiroInimigo.png", -1, Alvo);
+                Tiro tiro = new Tiro(Fundo, @"Assets\tiroInimigo.png", -1, Alvo);
                 tiro.Left = Left - tiro.Width;
                 tiro.Top = Top + (Height / 2) - (tiro.Height / 2);
                 tiroCont = 0;

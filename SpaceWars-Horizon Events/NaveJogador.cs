@@ -68,7 +68,7 @@ namespace Projeto_Space_War_V2_
                     Left = X_max - this.Width - 30;
                     cenario--;
                     if (cenario < 0) cenario = 2;
-                    Fundo.Load("fundo" + cenario + ".png");
+                    Fundo.Load(@"Assets\fundo" + cenario + ".png"); 
                 }
             }
 
@@ -82,7 +82,7 @@ namespace Projeto_Space_War_V2_
                     Left = 0;
                     cenario++;
                     if (cenario > 2) cenario = 0;
-                    Fundo.Load("fundo" + cenario + ".png");
+                    Fundo.Load(@"Assets\fundo" + cenario + ".png");
                 }
             }
 
