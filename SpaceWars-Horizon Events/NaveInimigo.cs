@@ -11,6 +11,7 @@ namespace Projeto_Space_War_V2_
         int tiroCont = 0;
         Entidade Alvo;
         PictureBox Fundo;
+        int sent = 0;
 
 
         public NaveInimigo(PictureBox fundo, string imagemNave, Entidade alvo) : base(fundo)
@@ -49,7 +50,12 @@ namespace Projeto_Space_War_V2_
         {
             Top += Speed * sentidoInimigo;
             if (Top >= Y_max - Height || Top <= 0)
+            {
                 sentidoInimigo = -sentidoInimigo;
+                sent++;
+                if (sent > 1) sent = 0;
+                Load(@"Assets\Inimigo 1 – Eco-do-Vazio\EcoVazio" + sent + ".png");
+            }
 
             tiroCont++;
             if (tiroCont == 30)

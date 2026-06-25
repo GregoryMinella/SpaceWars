@@ -88,6 +88,9 @@ namespace Projeto_Space_War_V2_
 
             if (Input.KeyDown(Keys.W)) Top -= Speed;
             if (Input.KeyDown(Keys.S)) Top += Speed;
+
+            if (Input.KeyDown(Keys.A)) Load(@"Assets\naveJogador-desativado.png");
+            if (Input.KeyDown(Keys.D)) Load(@"Assets\naveJogador-ativado.png");
         }
     }
 }
