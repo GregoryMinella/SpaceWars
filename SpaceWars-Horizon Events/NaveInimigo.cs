@@ -21,8 +21,8 @@ namespace Projeto_Space_War_V2_
             Load(imagemNave);
             Left = 1350;
             Top = 420;
-            Width = 120;
-            Height = 40;
+            Width = 180;
+            Height = 170;
             Speed = 5;
 
             lblHP.Text = "HP Inimigo: 100";
@@ -36,7 +36,7 @@ namespace Projeto_Space_War_V2_
             // Config da barra de vida
             barraVida.Parent = this;
             barraVida.Left = 40;
-            barraVida.Top = 36;
+            barraVida.Top = 20;
             barraVida.BackColor = Color.OrangeRed;
             barraVida.ProgressColor = Color.DarkGreen;
             barraVida.Height = 4;
@@ -60,7 +60,7 @@ namespace Projeto_Space_War_V2_
             tiroCont++;
             if (tiroCont == 30)
             {
-                Tiro tiro = new Tiro(Fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\tiro(temporario)\tiro.png", -1, Alvo);
+                Tiro tiro = new Tiro(Fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\tiro\tiro.png", -1, Alvo);
                 tiro.Left = Left - tiro.Width;
                 tiro.Top = Top + (Height / 2) - (tiro.Height / 2);
                 tiroCont = 0;

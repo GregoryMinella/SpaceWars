@@ -19,8 +19,8 @@ namespace Projeto_Space_War_V2_
             Load(imagemNave);
             Left = 300;
             Top = 420;
-            Width = 120;
-            Height = 40;
+            Width = 150;
+            Height = 90;
             Speed = 4;
 
             lblHP.Left = 100;
@@ -29,8 +29,8 @@ namespace Projeto_Space_War_V2_
 
             // Config da barra de vida
             barraVida.Parent = this;
-            barraVida.Left = 40;
-            barraVida.Top = 36;
+            barraVida.Left = 80;
+            barraVida.Top = 20;
             barraVida.BackColor = Color.OrangeRed;
             barraVida.ProgressColor = Color.DarkGreen;
             barraVida.Height = 4;

@@ -53,7 +53,7 @@ namespace SpaceWars_Horizon_Events
 
             if (Input.KeyDown(Keys.Space) && _teclaAnterior != Keys.Space)
             {
-                Tiro tiro = new Tiro(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\tiro(temporario)\tiro.png", naveJogador.DirecaoX, naveInimigo);
+                Tiro tiro = new Tiro(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\tiro\tiro.png", naveJogador.DirecaoX, naveInimigo);
                 tiro.Left = naveJogador.Left + naveJogador.Width - 5;
                 tiro.Top = naveJogador.Top + (int)naveJogador.Height / 3;
 
