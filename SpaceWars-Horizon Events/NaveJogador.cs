@@ -82,7 +82,7 @@ namespace Projeto_Space_War_V2_
                     Left = 0;
                     cenario++;
                     if (cenario > 2) cenario = 0;
-                    Fundo.Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Fundo" + cenario + ".png");
+                    Fundo.Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo" + cenario + ".png");
                 }
             }
 
