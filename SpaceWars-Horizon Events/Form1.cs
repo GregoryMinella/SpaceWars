@@ -3,22 +3,31 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Projeto_Space_War_V2_;
-    
+using System.IO;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace SpaceWars_Horizon_Events
 {
     public partial class MainForm : Form
-    {
-        Timer gameTimer = new Timer(); 
-        PictureBox fundo = new PictureBox();
-        NaveJogador naveJogador;
-        NaveInimigo naveInimigo; 
+        {
+            public static MainForm Instance { get; private set; } // criando a instancia do metodo (playCine)
 
-        Keys _teclaAnterior = Keys.None;
+            Timer gameTimer = new Timer(); 
+            PictureBox fundo = new PictureBox();
+            NaveJogador naveJogador;
+            NaveInimigo naveInimigo; 
+            bool cutscenePlaying = false;
+            Process videoProcess = null;
+            Timer cutsceneTimer;
+
+            Keys _teclaAnterior = Keys.None;
 
         public MainForm()
         {
             InitializeComponent();
+
+            Instance = this; // registra a instancia (playCine)
 
             FormBorderStyle = FormBorderStyle.None;
             BackColor = Color.Black;
@@ -33,11 +42,15 @@ namespace SpaceWars_Horizon_Events
             fundo.BackColor = Color.Transparent;
 
             gameTimer.Interval = 16;
-            gameTimer.Enabled = true;
+            gameTimer.Enabled = false; // Não inicia até a cutscene terminar
             gameTimer.Tick += gameTimerTick;
 
             naveJogador = new NaveJogador(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-desativado.png");
-            naveInimigo = new NaveInimigo(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio0.png", naveJogador); 
+            naveInimigo = new NaveInimigo(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio0.png", naveJogador);
+
+            // Dispara a cutscene de introdução automaticamente ao iniciar
+            // Parâmetro: nome do arquivo e duração em segundos
+            PlayCutscene("introducao.mp4", 11); // 11 segundos de duração <---- Guys esse cara é o foda, é so chamar ele em outra classe se precisar, ex:  MainForm.Instance.PlayCutscene("boss_jao.mp4", 20);
         }
         void DefineTamanhoForm()
         {
@@ -63,6 +76,7 @@ namespace SpaceWars_Horizon_Events
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
+            // comportamento original do jogo
             Input.KeyPressed(e.KeyCode);
 
             switch (e.KeyCode)
@@ -89,6 +103,144 @@ namespace SpaceWars_Horizon_Events
         {
             Input.KeyReleased(e.KeyCode);
             _teclaAnterior = Keys.None;
+        }
+
+        public void PlayCutscene(string videoFileName, int durationSeconds)
+        {
+            // Se já há uma cutscene rodando, não permite iniciar outra
+            if (cutscenePlaying) return;
+
+            InitializeCutscenePlayer(videoFileName, durationSeconds);
+        }
+
+        void InitializeCutscenePlayer(string videoFileName, int durationSeconds)
+        {
+            // Caminho do vídeo - usando diferentes formas de procurar
+            string videoRelative = Path.Combine(@"Assets\GDD_Immeasurable Chasm Event Horizon\Video", videoFileName);
+            string videoPath = Path.Combine(Application.StartupPath, videoRelative);
+
+            // Se não encontrar, tenta no diretório do projeto
+            if (!File.Exists(videoPath))
+            {
+                videoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, videoRelative);
+            }
+
+            // Se ainda não encontrar, tenta procurar em diretórios pai
+            if (!File.Exists(videoPath))
+            {
+                DirectoryInfo dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+                while (dir != null && !File.Exists(videoPath))
+                {
+                    videoPath = Path.Combine(dir.FullName, videoRelative);
+                    if (!File.Exists(videoPath))
+                    {
+                        dir = dir.Parent;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
+            // Debug: mostrar se o arquivo existe
+            if (!File.Exists(videoPath))
+            {
+                MessageBox.Show($"Vídeo '{videoFileName}' não encontrado em:\n{videoPath}", 
+                    "Erro - Vídeo não localizado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                StopCutscene();
+                return;
+            }
+
+            try
+            {
+                cutscenePlaying = true;
+                gameTimer.Enabled = false; // Pausa o jogo durante cutscene
+
+                // Obter caminho completo do wmplayer
+                string wmplayerPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), 
+                    @"Windows Media Player\wmplayer.exe");
+
+                // Se não encontrar, tentar localização alternativa
+                if (!File.Exists(wmplayerPath))
+                {
+                    wmplayerPath = "wmplayer.exe"; // Tenta usar PATH do sistema
+                }
+
+                ProcessStartInfo psi = new ProcessStartInfo();
+                psi.FileName = wmplayerPath;
+                psi.Arguments = $"\"{videoPath}\" /play /fullscreen";
+                psi.UseShellExecute = true;
+                psi.CreateNoWindow = false;
+
+                videoProcess = Process.Start(psi);
+                videoProcess.EnableRaisingEvents = true;
+
+                // Timer que vai disparar taskkill AUTOMATICAMENTE após durationSeconds
+                cutsceneTimer = new Timer();
+                cutsceneTimer.Interval = durationSeconds * 1000; // Converte segundos para milissegundos
+                cutsceneTimer.Tick += (s, e) =>
+                {
+                    cutsceneTimer.Stop();
+                    StopCutscene();
+                };
+                cutsceneTimer.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao abrir vídeo '{videoFileName}':\n{ex.Message}", 
+                    "Erro ao executar wmplayer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                StopCutscene();
+            }
+        }
+
+        void StopCutscene()
+        {
+            if (!cutscenePlaying) return;
+
+            cutscenePlaying = false;
+
+            // Parar o timer
+            try
+            {
+                if (cutsceneTimer != null)
+                {
+                    cutsceneTimer.Stop();
+                    cutsceneTimer.Dispose();
+                    cutsceneTimer = null;
+                }
+            }
+            catch { }
+
+            // Usar taskkill para GARANTIR que wmplayer fecha
+            try
+            {
+                ProcessStartInfo killPsi = new ProcessStartInfo();
+                killPsi.FileName = "cmd.exe";
+                killPsi.Arguments = "/c taskkill /IM wmplayer.exe /F /T"; // /T = mata processo e filhos
+                killPsi.UseShellExecute = false;
+                killPsi.CreateNoWindow = true;
+                killPsi.RedirectStandardOutput = true;
+                Process killProcess = Process.Start(killPsi);
+                killProcess.WaitForExit(2000);
+                killProcess.Dispose();
+            }
+            catch { }
+
+            // Limpar a referência do processo anterior
+            try
+            {
+                if (videoProcess != null)
+                {
+                    videoProcess.Dispose();
+                    videoProcess = null;
+                }
+            }
+            catch { }
+
+            // Aguarda um pouco e inicia o jogo
+            System.Threading.Thread.Sleep(200);
+            gameTimer.Enabled = true;
         }
 
         void MainFormLoad(object sender, EventArgs e)
