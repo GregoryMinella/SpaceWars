@@ -61,6 +61,8 @@
     <Compile Include="NaveJogador.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgressBarCustomizada.cs">
       <SubType>Component</SubType>
@@ -81,6 +83,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bin\Debug\SpaceWars-Horizon Events.exe.config" />
+    <None Include="obj\Release\SpaceWars-Horizon Events.csproj.AssemblyReference.cache" />
+    <None Include="obj\Release\SpaceWars-Horizon Events.csproj.ResolveComReference.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,9 +112,26 @@
     <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\GIF\Refazer\C_Caça.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\GIF\Refazer\C_EcoVazio.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\GIF\Refazer\C_Executor.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\GIF\Refazer\C_Manfredo.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\GIF\Refazer\C_Sentinela.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\GIF\seta.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Chefe Final – Manfredo\Manfredo0.png" />
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Chefe Final – Manfredo\Manfredo1.png" />
     <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -227,19 +249,171 @@
     <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\seta.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\som-tiro.mp3">
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo0.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo1.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo10.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo11.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo12.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo13.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo14.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo2.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo3.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo4.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo5.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo6.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo7.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo8.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Fundo\SomFundo9.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\SomConquista.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\SomDano.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\SomItem.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\SomMenu.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\SomOver.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\SomVitoria.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Tiro\SomTiro0.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Tiro\SomTiro1.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Tiro\SomTiro2.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Tiro\SomTiro3.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Tiro\SomTiro4.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Tiro\SomTiro5.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Tiro\SomTiro6.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Tiro\SomTiro7.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Vazio\SomVazio0.mp3" />
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Vazio\SomVazio1.mp3" />
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Vazio\SomVazio2.mp3" />
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Vazio\SomVazio3.mp3" />
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Vazio\SomVazio4.mp3" />
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Vazio\SomVazio5.mp3" />
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Vazio\SomVazio6.mp3" />
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Vazio\SomVazio7.mp3" />
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Som\Vazio\SomVazio8.mp3" />
     <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\tiro\tiro.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Video\Inimigo\Caçador.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Video\Inimigo\Eco.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Video\Inimigo\Sentinela.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Video\introducao.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo0.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo1.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo2.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo3.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\GIF\seta.gif" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio0.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio1.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio2.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 2 – Sentinela Sombria\SentinelaSombria.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 2 – Sentinela Sombria\SentinelaSombria0.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 2 – Sentinela Sombria\SentinelaSombria1.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 2 – Sentinela Sombria\SentinelaSombria2.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 3 – Caçador Gravitacional\CaçadorGravitacional.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 3 – Caçador Gravitacional\CaçadorGravitacional0.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 3 – Caçador Gravitacional\CaçadorGravitacional1.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 3 – Caçador Gravitacional\CaçadorGravitacional2.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 4 – Executor do Horizonte\ExecutorHorizonte.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 4 – Executor do Horizonte\ExecutorHorizonte0.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 4 – Executor do Horizonte\ExecutorHorizonte1.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 4 – Executor do Horizonte\ExecutorHorizonte2.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\CaçadorGravitacional.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\EcoVazio0.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\EcoVazio1.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\ExecutorHorizonte.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador-ativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador-desativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_agua-ativado - Cópia .png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_agua-ativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_agua-desativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_fogo-ativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_fogo-desativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_terra-ativado - Cópia .png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_terra-ativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_terra-desativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_total-ativado - Cópia .png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_total-ativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_total-desativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\naveJogador_vento-desativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-ativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-desativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador_fogo-ativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador_fogo-desativado.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\SentinelaSombria.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\seta.gif" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Som\som-tiro.mp3" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\tiro\tiro.png" />
+    <Content Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\Video\introducao.mp4" />
+    <Content Include="bin\Debug\SpaceWars-Horizon Events.exe" />
+    <Content Include="bin\Debug\SpaceWars-Horizon Events.pdb" />
+    <Content Include="obj\Release\Interop.MediaPlayer.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Chefe Final – Manfredo\" />
-    <Folder Include="Assets\GDD_Immeasurable Chasm Event Horizon\Video\Inimigo\" />
+    <Folder Include="bin\Debug\Assets\GDD_Immeasurable Chasm Event Horizon\tiro%28temporario%29\" />
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="MediaPlayer">
