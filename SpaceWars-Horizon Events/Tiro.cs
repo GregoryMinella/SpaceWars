@@ -12,8 +12,8 @@ namespace Projeto_Space_War_V2_
         public Tiro(PictureBox fundo, string imagem, int direcaoX, Entidade alvo) : base(fundo)
         {
             Load(imagem);
-            Width = 40;
-            Height = 30;
+            Width = 50;
+            Height = 15;
             Speed = 18; Alvo = alvo;
 
             DirecaoX = direcaoX;
