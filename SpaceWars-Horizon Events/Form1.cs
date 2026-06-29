@@ -17,11 +17,13 @@ namespace SpaceWars_Horizon_Events
             PictureBox fundo = new PictureBox();
             NaveJogador naveJogador;
             NaveInimigo naveInimigo;
+            Label lblUpgrade = new Label();
             bool jogoPausado = false;
             bool cutscenePlaying = false;
             Process videoProcess = null;
             Timer cutsceneTimer;
             bool xpEntregue = false;
+        bool upgradeAguardEnter;
 
         Keys _teclaAnterior = Keys.None;
 
@@ -86,9 +88,42 @@ namespace SpaceWars_Horizon_Events
                 xpEntregue = true;
                 naveJogador.bossKills++;
                 naveJogador.Speed += 2 + (naveJogador.Speed / 3);
-                naveJogador.HP += 10 + (naveJogador.HP / 4);
                 //dano precisa ser tipo.tiro novo
-                MessageBox.Show($"HP atual:{naveJogador.HP} bosses já derrotados:{naveJogador.bossKills} speed atual:{naveJogador.Speed}");
+                //Criando a label de upgrade
+                lblUpgrade.Font = new Font("Consolas", 14f, FontStyle.Regular);
+
+                //basico dos stats
+                lblUpgrade.Parent = fundo;
+                lblUpgrade.ForeColor = Color.Magenta;
+
+                // propiedades do label
+                lblUpgrade.AutoSize = true;
+                lblUpgrade.TextAlign = ContentAlignment.MiddleCenter;
+
+                // desenhando a telinha de upgrade
+                lblUpgrade.Text = $@"
+                                     +=====================================================+
+                                     +                                                     +
+                                     +                                                     +
+                                     +            Você Matou {naveJogador.bossKills} Bosses                     +
+                                     +                                                     +
+                                     +      Sua Speed Aumentou! foi para {naveJogador.Speed}                +
+                                     +                                                     +
+                                     +                                                     +
+                                     +          Aperte Enter para continuar...             +
+                                     +                                                     +
+                                     =======================================================
+                                    ";
+
+                // calculando a posição da label no centro da tela
+                lblUpgrade.Left = (fundo.Width - lblUpgrade.Width) / 3;
+                lblUpgrade.Top = (fundo.Height - lblUpgrade.Height) / 2;
+
+                // stop the time
+                pausarTudo();
+
+
+                upgradeAguardEnter = true; // aguarda o jogador apertar Enter para continuar
             }
             
         }
@@ -100,6 +135,14 @@ namespace SpaceWars_Horizon_Events
 
             // permitir mudar de tiro só se ja derrotou certo tipo de boss
             Input.KeyPressed(e.KeyCode);
+
+            if (upgradeAguardEnter && e.KeyCode == Keys.Enter)
+            {
+                upgradeAguardEnter = false;
+                retomarTudo();
+                lblUpgrade.Dispose(); // remove a label de upgrade
+                return;
+            }
 
             if (e.KeyCode == Keys.Enter)
             {
