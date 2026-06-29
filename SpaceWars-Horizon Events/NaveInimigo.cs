@@ -72,6 +72,7 @@ namespace Projeto_Space_War_V2_
             HP -= valorDano;
             if (HP <= 0)
             {
+                
                 inimigoTimer.Stop();
                 Left = 3000;
                 Dispose();
@@ -79,6 +80,11 @@ namespace Projeto_Space_War_V2_
             }
             lblHP.Text = "HP Inimigo: " + HP;
             barraVida.Value = HP;
+        }
+        public bool EstaMorto()
+        {
+            // Retorna true se a vida do boss for 0 ou menos
+            return HP <= 0;
         }
     }
 }

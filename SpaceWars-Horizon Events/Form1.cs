@@ -20,8 +20,9 @@ namespace SpaceWars_Horizon_Events
             bool cutscenePlaying = false;
             Process videoProcess = null;
             Timer cutsceneTimer;
+            bool xpEntregue = false;
 
-            Keys _teclaAnterior = Keys.None;
+        Keys _teclaAnterior = Keys.None;
 
         public MainForm()
         {
@@ -47,10 +48,11 @@ namespace SpaceWars_Horizon_Events
 
             naveJogador = new NaveJogador(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-desativado.png");
             naveInimigo = new NaveInimigo(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio0.png", naveJogador);
-
+            xpEntregue = false; // IMPORTANTE! precisa disso para funcionar a função de upar o lvl, toda vez que vier um inimigo novo (lembrem por favor)
             // Dispara a cutscene de introdução automaticamente ao iniciar
             // Parâmetro: nome do arquivo e duração em segundos
             PlayCutscene("introducao.mp4", 11); // 11 segundos de duração <---- Guys esse cara é o foda, é so chamar ele em outra classe se precisar, ex:  MainForm.Instance.PlayCutscene("boss_jao.mp4", 20);
+           
         }
         void DefineTamanhoForm()
         {
@@ -72,6 +74,22 @@ namespace SpaceWars_Horizon_Events
 
                 _teclaAnterior = Keys.Space;
             }
+
+            uparLvl(); // roda a função a cada gameTimerTick 
+        }
+
+        void uparLvl()
+        {
+            if (naveInimigo.EstaMorto() && xpEntregue == false) //verifica se pode entregar o xp toda vez que o bixo toma dano
+            {
+                xpEntregue = true;
+                naveJogador.bossKills++;
+                naveJogador.Speed += 2 + (naveJogador.Speed / 3);
+                naveJogador.HP += 10 + (naveJogador.HP / 4);
+                //dano precisa ser tipo.tiro novo
+                MessageBox.Show($"HP atual:{naveJogador.HP} bosses já derrotados:{naveJogador.bossKills} speed atual:{naveJogador.Speed}");
+            }
+            
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
@@ -79,25 +97,28 @@ namespace SpaceWars_Horizon_Events
             // comportamento original do jogo
             Input.KeyPressed(e.KeyCode);
 
+            // permitir mudar de tiro só se ja derrotou certo tipo de boss
             switch (e.KeyCode)
             {
                 case Keys.D1:
-                    naveJogador.tipoTiro = 1;
+                    if (naveJogador.bossKills >= 1) naveJogador.tipoTiro = 1;
                     break;
                 case Keys.D2:
-                    naveJogador.tipoTiro = 2;
+                    if (naveJogador.bossKills >= 2) naveJogador.tipoTiro = 2;
                     break;
                 case Keys.D3:
-                    naveJogador.tipoTiro = 3;
+                    if (naveJogador.bossKills >= 3) naveJogador.tipoTiro = 3;
                     break; 
                 case Keys.D4:
-                    naveJogador.tipoTiro = 4;
+                    if (naveJogador.bossKills >= 4) naveJogador.tipoTiro = 4;
                     break;
                 case Keys.D0:
-                    naveJogador.tipoTiro = 0;
+                    if (naveJogador.bossKills >= 0) naveJogador.tipoTiro = 0;
                     break;
+   
             }
         }
+       //falta ainda colocar uma função para mudar o que o tiro irá fazer quando tipo.tiro for igual a algo
 
         protected override void OnKeyUp(KeyEventArgs e)
         {
@@ -155,8 +176,9 @@ namespace SpaceWars_Horizon_Events
             try
             {
                 cutscenePlaying = true;
+               
                 gameTimer.Enabled = false; // Pausa o jogo durante cutscene
-
+                naveInimigo.inimigoTimer.Stop();// Pausa o inimigo durante cutscene
                 // Obter caminho completo do wmplayer
                 string wmplayerPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), 
                     @"Windows Media Player\wmplayer.exe");
@@ -241,6 +263,7 @@ namespace SpaceWars_Horizon_Events
             // Aguarda um pouco e inicia o jogo
             System.Threading.Thread.Sleep(200);
             gameTimer.Enabled = true;
+            naveInimigo.inimigoTimer.Start();
         }
 
         void MainFormLoad(object sender, EventArgs e)
@@ -248,9 +271,9 @@ namespace SpaceWars_Horizon_Events
             this.DoubleBuffered = true;
         }
 
-
+    
     }
-
+        
     public static class Input
     {
 

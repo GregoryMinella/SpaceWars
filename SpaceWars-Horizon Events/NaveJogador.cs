@@ -10,6 +10,7 @@ namespace Projeto_Space_War_V2_
 
         public int cenario = 0;
         public int tipoTiro = 0;
+        public int bossKills = 0;
         PictureBox Fundo;
 
         public NaveJogador(PictureBox fundo, string imagemNave) : base(fundo)
@@ -50,7 +51,15 @@ namespace Projeto_Space_War_V2_
                 HP = 0;
             }
 
+            if (tipoTiro == 1)
+            {
+
+            }
             lblHP.Text = "HP Jogador: " + HP;
+            if (HP > barraVida.Value) // verifica se o ja subiu de level (+HP) e então, pode aumentar o maximum antes de crashar
+            {
+                barraVida.Maximum = HP;
+            }
             barraVida.Value = HP;
         }
 

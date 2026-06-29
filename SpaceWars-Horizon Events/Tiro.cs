@@ -5,7 +5,7 @@ namespace Projeto_Space_War_V2_
 {
     public class Tiro : Entidade
     {
-        Random rnd = new Random();
+       Random rnd = new Random();
         public Timer tiroTimer = new Timer();
         Entidade Alvo;
 
