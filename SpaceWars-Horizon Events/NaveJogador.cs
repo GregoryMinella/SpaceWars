@@ -9,7 +9,7 @@ namespace Projeto_Space_War_V2_
     {
 
         public int cenario = 0;
-        public int tipoTiro = 0;
+        public int tipoElemental = 0;
         public int bossKills = 0;
         PictureBox Fundo;
 
@@ -41,9 +41,19 @@ namespace Projeto_Space_War_V2_
             barraVida.Value = HP;
         }
 
-        public override void Dano(int valorDano)
+        public override void Dano(int valorDano, int tipoTiroAlvo)
         {
-            HP -= valorDano;
+            if (tipoElemental == 1 && tipoTiroAlvo == 4 ||
+                tipoElemental == 2 && tipoTiroAlvo == 1 ||
+                tipoElemental == 3 && tipoTiroAlvo == 2 ||
+                tipoElemental == 4 && tipoTiroAlvo == 3)
+            {
+                HP -= valorDano * 2;
+            }
+            else
+            {
+                HP -= valorDano;
+            }
             if (HP <= 0)
             {
                 Left = 3000;
@@ -51,15 +61,7 @@ namespace Projeto_Space_War_V2_
                 HP = 0;
             }
 
-            if (tipoTiro == 1)
-            {
-
-            }
             lblHP.Text = "HP Jogador: " + HP;
-            if (HP > barraVida.Value) // verifica se o ja subiu de level (+HP) e então, pode aumentar o maximum antes de crashar
-            {
-                barraVida.Maximum = HP;
-            }
             barraVida.Value = HP;
         }
 
@@ -70,6 +72,7 @@ namespace Projeto_Space_War_V2_
             if (Input.KeyDown(Keys.A))
             {
                 Left -= Speed;
+                Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-desativado.png");
 
                 //clamp
                 if (Left < 0)
@@ -84,6 +87,7 @@ namespace Projeto_Space_War_V2_
             if (Input.KeyDown(Keys.D))
             {
                 Left += Speed;
+                Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-ativado.png");
 
                 //clamp
                 if (Left >= X_max)
@@ -98,8 +102,6 @@ namespace Projeto_Space_War_V2_
             if (Input.KeyDown(Keys.W)) Top -= Speed;
             if (Input.KeyDown(Keys.S)) Top += Speed;
 
-            if (Input.KeyDown(Keys.A)) Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-desativado.png");
-            if (Input.KeyDown(Keys.D)) Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-ativado.png");
         }
     }
 }

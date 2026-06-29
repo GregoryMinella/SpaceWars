@@ -12,18 +12,21 @@ namespace Projeto_Space_War_V2_
         Entidade Alvo;
         PictureBox Fundo;
         int sent = 0;
+        public int tipoElemental;
 
 
-        public NaveInimigo(PictureBox fundo, string imagemNave, Entidade alvo) : base(fundo)
+        public NaveInimigo(PictureBox fundo, string imagemNave, Entidade alvo, int hp, int tipoElemento) : base(fundo)
         {
             Fundo = fundo;
             Alvo = alvo;
+            HP = hp;
             Load(imagemNave);
             Left = 1350;
             Top = 420;
             Width = 180;
             Height = 170;
             Speed = 5;
+            tipoElemental = tipoElemento;
 
             lblHP.Text = "HP Inimigo: 100";
             lblHP.Left = 1680;
@@ -42,7 +45,7 @@ namespace Projeto_Space_War_V2_
             barraVida.Height = 4;
             barraVida.Width = 30;
             barraVida.Minimum = 0;
-            barraVida.Maximum = 100;
+            barraVida.Maximum = hp;
             barraVida.Value = HP;
         }
 
@@ -67,12 +70,21 @@ namespace Projeto_Space_War_V2_
             }
         }
 
-        public override void Dano(int valorDano)
+        public override void Dano(int valorDano, int tipoTiroAlvo)
         {
-            HP -= valorDano;
+            if (tipoElemental == 1 && tipoTiroAlvo == 4)
+                HP -= valorDano * 2;
+            else if (tipoElemental == 2 && tipoTiroAlvo == 1)
+                HP -= valorDano * 2;
+            else if (tipoElemental == 3 && tipoTiroAlvo == 2)
+                HP -= valorDano * 2;
+            else if (tipoElemental == 4 && tipoTiroAlvo == 3)
+                HP -= valorDano * 2;
+            else
+                HP -= valorDano;
+
             if (HP <= 0)
             {
-                
                 inimigoTimer.Stop();
                 Left = 3000;
                 Dispose();

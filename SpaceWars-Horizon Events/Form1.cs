@@ -17,7 +17,7 @@ namespace SpaceWars_Horizon_Events
             PictureBox fundo = new PictureBox();
             NaveJogador naveJogador;
             NaveInimigo naveInimigo;
-        bool jogoPausado = false;
+            bool jogoPausado = false;
             bool cutscenePlaying = false;
             Process videoProcess = null;
             Timer cutsceneTimer;
@@ -48,7 +48,7 @@ namespace SpaceWars_Horizon_Events
             gameTimer.Tick += gameTimerTick;
 
             naveJogador = new NaveJogador(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-desativado.png");
-            naveInimigo = new NaveInimigo(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio0.png", naveJogador);
+            naveInimigo = new NaveInimigo(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio0.png", naveJogador, 200, 4);
             xpEntregue = false; // IMPORTANTE! precisa disso para funcionar a função de upar o lvl, toda vez que vier um inimigo novo (lembrem por favor)
             // Dispara a cutscene de introdução automaticamente ao iniciar
             // Parâmetro: nome do arquivo e duração em segundos
@@ -117,19 +117,19 @@ namespace SpaceWars_Horizon_Events
             switch (e.KeyCode)
             {
                 case Keys.D1:
-                    naveJogador.tipoTiro = 1;
+                    naveJogador.tipoElemental = 1;
                     break;
                 case Keys.D2:
-                    naveJogador.tipoTiro = 2;
+                    naveJogador.tipoElemental = 2;
                     break;
                 case Keys.D3:
-                    naveJogador.tipoTiro = 3;
+                    naveJogador.tipoElemental = 3;
                     break;
                 case Keys.D4:
-                    naveJogador.tipoTiro = 4;
+                    naveJogador.tipoElemental = 4;
                     break;
                 case Keys.D0:
-                    naveJogador.tipoTiro = 0;
+                    naveJogador.tipoElemental = 0;
                     break;
             }
         }

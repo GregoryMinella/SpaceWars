@@ -11,6 +11,7 @@ namespace Projeto_Space_War_V2_  // <-- REMOVA O PONTO FINAL
         public int Speed = 5;
         public int X_max, Y_max;
         public int DirecaoX = 1;
+        public int tipoElemental;
 
         public Label lblHP = new Label();
 
@@ -33,7 +34,7 @@ namespace Projeto_Space_War_V2_  // <-- REMOVA O PONTO FINAL
             lblHP.AutoSize = true;
         }
 
-        public virtual void Dano(int valorDano)
+        public virtual void Dano(int valorDano, int tipoElementalAlvo)
         {
 
         }

@@ -5,7 +5,7 @@ namespace Projeto_Space_War_V2_
 {
     public class Tiro : Entidade
     {
-       Random rnd = new Random();
+        Random rnd = new Random();
         public Timer tiroTimer = new Timer();
         Entidade Alvo;
 
@@ -14,7 +14,8 @@ namespace Projeto_Space_War_V2_
             Load(imagem);
             Width = 50;
             Height = 15;
-            Speed = 18; Alvo = alvo;
+            Speed = 18; 
+            Alvo = alvo;
 
             DirecaoX = direcaoX;
 
@@ -38,7 +39,7 @@ namespace Projeto_Space_War_V2_
                 Left = 5000;
                 Dispose();
 
-                Alvo.Dano(rnd.Next(10, 21));
+                Alvo.Dano(20, Alvo.tipoElemental);
             }
         }
     }
