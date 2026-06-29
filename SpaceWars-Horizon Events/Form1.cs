@@ -16,7 +16,8 @@ namespace SpaceWars_Horizon_Events
             Timer gameTimer = new Timer(); 
             PictureBox fundo = new PictureBox();
             NaveJogador naveJogador;
-            NaveInimigo naveInimigo; 
+            NaveInimigo naveInimigo;
+        bool jogoPausado = false;
             bool cutscenePlaying = false;
             Process videoProcess = null;
             Timer cutsceneTimer;
@@ -98,27 +99,59 @@ namespace SpaceWars_Horizon_Events
             Input.KeyPressed(e.KeyCode);
 
             // permitir mudar de tiro só se ja derrotou certo tipo de boss
+            Input.KeyPressed(e.KeyCode);
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (!jogoPausado) // Se NÃO (!) estiver pausado...
+                {
+                    pausarTudo(); // Pausa!
+                }
+                else // Se já estiver pausado...
+                {
+                    retomarTudo(); // Despausa!
+                }
+                return; // <--- Muito importante!
+            }
+
             switch (e.KeyCode)
             {
                 case Keys.D1:
-                    if (naveJogador.bossKills >= 1) naveJogador.tipoTiro = 1;
+                    naveJogador.tipoTiro = 1;
                     break;
                 case Keys.D2:
-                    if (naveJogador.bossKills >= 2) naveJogador.tipoTiro = 2;
+                    naveJogador.tipoTiro = 2;
                     break;
                 case Keys.D3:
-                    if (naveJogador.bossKills >= 3) naveJogador.tipoTiro = 3;
-                    break; 
+                    naveJogador.tipoTiro = 3;
+                    break;
                 case Keys.D4:
-                    if (naveJogador.bossKills >= 4) naveJogador.tipoTiro = 4;
+                    naveJogador.tipoTiro = 4;
                     break;
                 case Keys.D0:
-                    if (naveJogador.bossKills >= 0) naveJogador.tipoTiro = 0;
+                    naveJogador.tipoTiro = 0;
                     break;
-   
             }
         }
-       //falta ainda colocar uma função para mudar o que o tiro irá fazer quando tipo.tiro for igual a algo
+
+        void pausarTudo()
+        {
+            jogoPausado = true; // Avisa o jogo que mudamos o estado
+            gameTimer.Stop();   // Para o timer principal (sua nave, tiros, etc.)
+
+            // O "?." checa se o inimigo existe antes de tentar parar o timer dele (evita crash)
+            if (naveInimigo?.inimigoTimer != null) naveInimigo.inimigoTimer.Stop();
+        }
+        void retomarTudo()
+        {
+            jogoPausado = false; // Avisa o jogo que voltamos
+            gameTimer.Start();   // Reativa o timer principal
+
+            // CORRIGIDO: Agora dá .Start() no inimigo para ele voltar a se mexer!
+            if (naveInimigo?.inimigoTimer != null) naveInimigo.inimigoTimer.Start();
+        }
+
+        //falta ainda colocar uma função para mudar o que o tiro irá fazer quando tipo.tiro for igual a algo
 
         protected override void OnKeyUp(KeyEventArgs e)
         {
