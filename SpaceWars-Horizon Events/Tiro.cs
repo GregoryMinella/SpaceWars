@@ -8,16 +8,19 @@ namespace Projeto_Space_War_V2_
         Random rnd = new Random();
         public Timer tiroTimer = new Timer();
         Entidade Alvo;
+        private int elementoDoTiro; // <--- Guarda o elemento de quem disparou
 
-        public Tiro(PictureBox fundo, string imagem, int direcaoX, Entidade alvo) : base(fundo)
+        // Atualizamos o construtor para receber "int tipoTiroOrigem" no final
+        public Tiro(PictureBox fundo, string imagem, int direcaoX, Entidade alvo, int tipoTiroOrigem) : base(fundo)
         {
             Load(imagem);
             Width = 50;
             Height = 15;
-            Speed = 18; 
+            Speed = 18;
             Alvo = alvo;
-
             DirecaoX = direcaoX;
+
+            elementoDoTiro = tipoTiroOrigem; // <--- Registra o elemento do jogador neste tiro
 
             tiroTimer.Start();
             tiroTimer.Interval = 16;
@@ -30,16 +33,18 @@ namespace Projeto_Space_War_V2_
 
             if (Left > X_max || Left < 0)
             {
-                Left = 5000;
+                tiroTimer.Stop();
                 Dispose();
+                return;
             }
 
-            if (Bounds.IntersectsWith(Alvo.Bounds))
+            if (Alvo != null && !Alvo.IsDisposed && Bounds.IntersectsWith(Alvo.Bounds))
             {
-                Left = 5000;
+                tiroTimer.Stop(); // Para o timer para evitar múltiplos ticks na colisão
                 Dispose();
 
-                Alvo.Dano(20, Alvo.tipoElemental);
+                // CORRIGIDO: Passa o elemento real do tiro, não o do Alvo!
+                Alvo.Dano(rnd.Next(11, 27), elementoDoTiro);
             }
         }
     }

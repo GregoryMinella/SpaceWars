@@ -9,7 +9,6 @@ namespace Projeto_Space_War_V2_
     {
 
         public int cenario = 0;
-        public int tipoElemental = 0;
         public int bossKills = 0;
         PictureBox Fundo;
 
@@ -80,7 +79,7 @@ namespace Projeto_Space_War_V2_
                     Left = X_max - this.Width - 30;
                     cenario--;
                     if (cenario < 0) cenario = 2;
-                    Fundo.Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo" + cenario + ".png"); 
+                    Fundo.Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo" + cenario + ".png");
                 }
             }
 

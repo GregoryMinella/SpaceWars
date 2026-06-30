@@ -11,7 +11,7 @@ namespace Projeto_Space_War_V2_  // <-- REMOVA O PONTO FINAL
         public int Speed = 5;
         public int X_max, Y_max;
         public int DirecaoX = 1;
-        public int tipoElemental;
+        public int tipoElemental = 0;
 
         public Label lblHP = new Label();
 

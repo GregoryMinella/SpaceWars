@@ -12,7 +12,6 @@ namespace Projeto_Space_War_V2_
         Entidade Alvo;
         PictureBox Fundo;
         int sent = 0;
-        public int tipoElemental;
 
 
         public NaveInimigo(PictureBox fundo, string imagemNave, Entidade alvo, int hp, int tipoElemento) : base(fundo)
@@ -49,6 +48,8 @@ namespace Projeto_Space_War_V2_
             barraVida.Value = HP;
         }
 
+        
+
         void InimigoTimerTick(object sender, EventArgs e)
         {
             Top += Speed * sentidoInimigo;
@@ -63,7 +64,8 @@ namespace Projeto_Space_War_V2_
             tiroCont++;
             if (tiroCont == 30)
             {
-                Tiro tiro = new Tiro(Fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\tiro\tiro.png", -1, Alvo);
+                // Alterado de '1' para '-1' para que o tiro vá para a esquerda
+                Tiro tiro = new Tiro(Fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\tiro\tiro.png", -1, Alvo, 4);
                 tiro.Left = Left - tiro.Width;
                 tiro.Top = Top + (Height / 2) - (tiro.Height / 2);
                 tiroCont = 0;

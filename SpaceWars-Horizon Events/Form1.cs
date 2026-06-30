@@ -10,19 +10,19 @@ using System.Threading.Tasks;
 namespace SpaceWars_Horizon_Events
 {
     public partial class MainForm : Form
-        {
-            public static MainForm Instance { get; private set; } // criando a instancia do metodo (playCine)
+    {
+        public static MainForm Instance { get; private set; } // criando a instancia do metodo (playCine)
 
-            Timer gameTimer = new Timer(); 
-            PictureBox fundo = new PictureBox();
-            NaveJogador naveJogador;
-            NaveInimigo naveInimigo;
-            Label lblUpgrade = new Label();
-            bool jogoPausado = false;
-            bool cutscenePlaying = false;
-            Process videoProcess = null;
-            Timer cutsceneTimer;
-            bool xpEntregue = false;
+        Timer gameTimer = new Timer();
+        PictureBox fundo = new PictureBox();
+        NaveJogador naveJogador;
+        NaveInimigo naveInimigo;
+        Label lblUpgrade = new Label();
+        bool jogoPausado = false;
+        bool cutscenePlaying = false;
+        Process videoProcess = null;
+        Timer cutsceneTimer;
+        bool xpEntregue = false;
         bool upgradeAguardEnter;
 
         Keys _teclaAnterior = Keys.None;
@@ -55,7 +55,7 @@ namespace SpaceWars_Horizon_Events
             // Dispara a cutscene de introdução automaticamente ao iniciar
             // Parâmetro: nome do arquivo e duração em segundos
             PlayCutscene("introducao.mp4", 11); // 11 segundos de duração <---- Guys esse cara é o foda, é so chamar ele em outra classe se precisar, ex:  MainForm.Instance.PlayCutscene("boss_jao.mp4", 20);
-           
+
         }
         void DefineTamanhoForm()
         {
@@ -71,11 +71,18 @@ namespace SpaceWars_Horizon_Events
 
             if (Input.KeyDown(Keys.Space) && _teclaAnterior != Keys.Space)
             {
-                Tiro tiro = new Tiro(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\tiro\tiro.png", naveJogador.DirecaoX, naveInimigo);
-                tiro.Left = naveJogador.Left + naveJogador.Width - 5;
-                tiro.Top = naveJogador.Top + (int)naveJogador.Height / 3;
+                // Procure por isso no MainForm.cs e altere:
+                if (Input.KeyDown(Keys.Space) && _teclaAnterior != Keys.Space)
+                {
+                    // ADICIONADO: "naveJogador.tipoElemental" no final do construtor do Tiro
+                    Tiro tiro = new Tiro(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\tiro\tiro.png",
+                                         naveJogador.DirecaoX, naveInimigo, naveJogador.tipoElemental);
 
-                _teclaAnterior = Keys.Space;
+                    tiro.Left = naveJogador.Left + naveJogador.Width - 5;
+                    tiro.Top = naveJogador.Top + (int)naveJogador.Height / 3;
+
+                    _teclaAnterior = Keys.Space;
+                }
             }
 
             uparLvl(); // roda a função a cada gameTimerTick 
@@ -102,18 +109,18 @@ namespace SpaceWars_Horizon_Events
 
                 // desenhando a telinha de upgrade
                 lblUpgrade.Text = $@"
-                                     +=====================================================+
-                                     +                                                     +
-                                     +                                                     +
-                                     +            Você Matou {naveJogador.bossKills} Bosses                     +
-                                     +                                                     +
-                                     +      Sua Speed Aumentou! foi para {naveJogador.Speed}                +
-                                     +                                                     +
-                                     +                                                     +
-                                     +          Aperte Enter para continuar...             +
-                                     +                                                     +
-                                     =======================================================
-                                    ";
+                                    +=====================================================+
+                                    +                                                     +
+                                    +                                                     +
+                                    +            Você Matou {naveJogador.bossKills} Bosses                     +
+                                    +                                                     +
+                                    +      Sua Speed Aumentou! foi para {naveJogador.Speed}                +
+                                    +                                                     +
+                                    +                                                     +
+                                    +          Aperte Enter para continuar...             +
+                                    +                                                     +
+                                    =======================================================
+                                   ";
 
                 // calculando a posição da label no centro da tela
                 lblUpgrade.Left = (fundo.Width - lblUpgrade.Width) / 3;
@@ -125,9 +132,8 @@ namespace SpaceWars_Horizon_Events
 
                 upgradeAguardEnter = true; // aguarda o jogador apertar Enter para continuar
             }
-            
-        }
 
+        }
         protected override void OnKeyDown(KeyEventArgs e)
         {
             // comportamento original do jogo
@@ -176,6 +182,7 @@ namespace SpaceWars_Horizon_Events
                     break;
             }
         }
+
 
         void pausarTudo()
         {
@@ -243,7 +250,7 @@ namespace SpaceWars_Horizon_Events
             // Debug: mostrar se o arquivo existe
             if (!File.Exists(videoPath))
             {
-                MessageBox.Show($"Vídeo '{videoFileName}' não encontrado em:\n{videoPath}", 
+                MessageBox.Show($"Vídeo '{videoFileName}' não encontrado em:\n{videoPath}",
                     "Erro - Vídeo não localizado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 StopCutscene();
                 return;
@@ -252,11 +259,11 @@ namespace SpaceWars_Horizon_Events
             try
             {
                 cutscenePlaying = true;
-               
+
                 gameTimer.Enabled = false; // Pausa o jogo durante cutscene
                 naveInimigo.inimigoTimer.Stop();// Pausa o inimigo durante cutscene
                 // Obter caminho completo do wmplayer
-                string wmplayerPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), 
+                string wmplayerPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles),
                     @"Windows Media Player\wmplayer.exe");
 
                 // Se não encontrar, tentar localização alternativa
@@ -286,7 +293,7 @@ namespace SpaceWars_Horizon_Events
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao abrir vídeo '{videoFileName}':\n{ex.Message}", 
+                MessageBox.Show($"Erro ao abrir vídeo '{videoFileName}':\n{ex.Message}",
                     "Erro ao executar wmplayer", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 StopCutscene();
             }
@@ -347,9 +354,9 @@ namespace SpaceWars_Horizon_Events
             this.DoubleBuffered = true;
         }
 
-    
+
     }
-        
+
     public static class Input
     {
 
