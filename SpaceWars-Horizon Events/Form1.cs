@@ -50,11 +50,11 @@ namespace SpaceWars_Horizon_Events
             gameTimer.Tick += gameTimerTick;
 
             naveJogador = new NaveJogador(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-desativado.png");
-            naveInimigo = new NaveInimigo(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio0.png", naveJogador, 200, 4);
+            // naveInimigo = new NaveInimigo(fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio0.png", naveJogador, 200, 4);
             xpEntregue = false; // IMPORTANTE! precisa disso para funcionar a função de upar o lvl, toda vez que vier um inimigo novo (lembrem por favor)
             // Dispara a cutscene de introdução automaticamente ao iniciar
             // Parâmetro: nome do arquivo e duração em segundos
-            PlayCutscene("introducao.mp4", 11); // 11 segundos de duração <---- Guys esse cara é o foda, é so chamar ele em outra classe se precisar, ex:  MainForm.Instance.PlayCutscene("boss_jao.mp4", 20);
+            // PlayCutscene("introducao.mp4", 11); // 11 segundos de duração <---- Guys esse cara é o foda, é so chamar ele em outra classe se precisar, ex:  MainForm.Instance.PlayCutscene("boss_jao.mp4", 20);
 
         }
         void DefineTamanhoForm()
@@ -85,55 +85,55 @@ namespace SpaceWars_Horizon_Events
                 }
             }
 
-            uparLvl(); // roda a função a cada gameTimerTick 
+            // uparLvl(); // roda a função a cada gameTimerTick 
         }
 
-        void uparLvl()
-        {
-            if (naveInimigo.EstaMorto() && xpEntregue == false) //verifica se pode entregar o xp toda vez que o bixo toma dano
-            {
-                xpEntregue = true;
-                naveJogador.bossKills++;
-                naveJogador.Speed += 2 + (naveJogador.Speed / 3);
-                //dano precisa ser tipo.tiro novo
-                //Criando a label de upgrade
-                lblUpgrade.Font = new Font("Consolas", 14f, FontStyle.Regular);
+        //void uparLvl()
+        //{
+        //    if (naveInimigo.EstaMorto() && xpEntregue == false) //verifica se pode entregar o xp toda vez que o bixo toma dano
+        //    {
+        //        xpEntregue = true;
+        //        naveJogador.bossKills++;
+        //        naveJogador.Speed += 2 + (naveJogador.Speed / 3);
+        //        //dano precisa ser tipo.tiro novo
+        //        //Criando a label de upgrade
+        //        lblUpgrade.Font = new Font("Consolas", 14f, FontStyle.Regular);
 
-                //basico dos stats
-                lblUpgrade.Parent = fundo;
-                lblUpgrade.ForeColor = Color.Magenta;
+        //        //basico dos stats
+        //        lblUpgrade.Parent = fundo;
+        //        lblUpgrade.ForeColor = Color.Magenta;
 
-                // propiedades do label
-                lblUpgrade.AutoSize = true;
-                lblUpgrade.TextAlign = ContentAlignment.MiddleCenter;
+        //        // propiedades do label
+        //        lblUpgrade.AutoSize = true;
+        //        lblUpgrade.TextAlign = ContentAlignment.MiddleCenter;
 
-                // desenhando a telinha de upgrade
-                lblUpgrade.Text = $@"
-                                    +=====================================================+
-                                    +                                                     +
-                                    +                                                     +
-                                    +            Você Matou {naveJogador.bossKills} Bosses                     +
-                                    +                                                     +
-                                    +      Sua Speed Aumentou! foi para {naveJogador.Speed}                +
-                                    +                                                     +
-                                    +                                                     +
-                                    +          Aperte Enter para continuar...             +
-                                    +                                                     +
-                                    =======================================================
-                                   ";
+        //        // desenhando a telinha de upgrade
+        //        lblUpgrade.Text = $@"
+        //                            +=====================================================+
+        //                            +                                                     +
+        //                            +                                                     +
+        //                            +            Você Matou {naveJogador.bossKills} Bosses                     +
+        //                            +                                                     +
+        //                            +      Sua Speed Aumentou! foi para {naveJogador.Speed}                +
+        //                            +                                                     +
+        //                            +                                                     +
+        //                            +          Aperte Enter para continuar...             +
+        //                            +                                                     +
+        //                            =======================================================
+        //                           ";
 
-                // calculando a posição da label no centro da tela
-                lblUpgrade.Left = (fundo.Width - lblUpgrade.Width) / 3;
-                lblUpgrade.Top = (fundo.Height - lblUpgrade.Height) / 2;
+        //        // calculando a posição da label no centro da tela
+        //        lblUpgrade.Left = (fundo.Width - lblUpgrade.Width) / 3;
+        //        lblUpgrade.Top = (fundo.Height - lblUpgrade.Height) / 2;
 
-                // stop the time
-                pausarTudo();
+        //        // stop the time
+        //        pausarTudo();
 
 
-                upgradeAguardEnter = true; // aguarda o jogador apertar Enter para continuar
-            }
+        //        upgradeAguardEnter = true; // aguarda o jogador apertar Enter para continuar
+        //    }
 
-        }
+        //}
         protected override void OnKeyDown(KeyEventArgs e)
         {
             // comportamento original do jogo

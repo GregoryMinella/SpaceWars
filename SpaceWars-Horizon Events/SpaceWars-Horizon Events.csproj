@@ -111,6 +111,12 @@
     <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\GDD_Immeasurable Chasm Event Horizon\GIF\Refazer\C_Caça.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

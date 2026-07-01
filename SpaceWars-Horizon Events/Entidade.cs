@@ -12,6 +12,7 @@ namespace Projeto_Space_War_V2_  // <-- REMOVA O PONTO FINAL
         public int X_max, Y_max;
         public int DirecaoX = 1;
         public int tipoElemental = 0;
+        public int animaCont;
 
         public Label lblHP = new Label();
 

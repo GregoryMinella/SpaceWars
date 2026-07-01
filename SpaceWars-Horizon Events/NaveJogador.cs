@@ -10,6 +10,7 @@ namespace Projeto_Space_War_V2_
 
         public int cenario = 0;
         public int bossKills = 0;
+        NaveInimigo naveInimigo;
         PictureBox Fundo;
 
         public NaveJogador(PictureBox fundo, string imagemNave) : base(fundo)
@@ -68,39 +69,86 @@ namespace Projeto_Space_War_V2_
         {
             if (Input.KeyDown(Keys.Escape)) Application.Exit();
 
+            // Esquerda
             if (Input.KeyDown(Keys.A))
             {
                 Left -= Speed;
                 Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-desativado.png");
 
-                //clamp
+
+
                 if (Left < 0)
                 {
-                    Left = X_max - this.Width - 30;
-                    cenario--;
-                    if (cenario < 0) cenario = 2;
-                    Fundo.Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo" + cenario + ".png");
+                    Left = X_max - Width - 30;
+                     animaCont = 1;
+
+                    if (cenario == 0)
+                        cenario = 1;
+
+
+                    else if (cenario == 3)
+                        cenario = 0;
+                    naveInimigo = new NaveInimigo(Fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 2 – Sentinela Sombria\SentinelaSombria0.png", this, 200, 4);
+                    Fundo.Load($@"Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo{cenario}.png");
                 }
             }
 
-            if (Input.KeyDown(Keys.D))
-            {
-                Left += Speed;
-                Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-ativado.png");
-
-                //clamp
-                if (Left >= X_max)
+                // Direita
+                if (Input.KeyDown(Keys.D))
                 {
-                    Left = 0;
-                    cenario++;
-                    if (cenario > 2) cenario = 0;
-                    Fundo.Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo" + cenario + ".png");
+                    Left += Speed;
+                    Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Jogador\refazer\naveJogador-ativado.png");
+
+                    animaCont = 3;
+                    if (Left >= X_max)
+                    {
+                        Left = 0;
+
+                        if (cenario == 0)
+                            cenario = 3;
+                        else if (cenario == 1)
+                            cenario = 0;
+                        naveInimigo = new NaveInimigo(Fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 4 – Executor do Horizonte\ExecutorHorizonte0.png", this, 200, 4);
+                        Fundo.Load($@"Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo{cenario}.png");
+                    }
+                }
+
+                // Cima
+                if (Input.KeyDown(Keys.W))
+                {
+                    Top -= Speed;
+                    animaCont = 0;
+                    if (Top < 0)
+                    {
+                        Top = Y_max - Height - 30;
+
+                        if (cenario == 0)
+                            cenario = 2;
+                        else if (cenario == 4)
+                            cenario = 0;
+
+                        naveInimigo = new NaveInimigo(Fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio0.png", this, 200, 4);
+                        Fundo.Load($@"Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo{cenario}.png");
+                    }
+                }
+
+            // Baixo
+            if (Input.KeyDown(Keys.S))
+            {
+                Top += Speed;
+                animaCont = 2;
+                if (Top >= Y_max)
+                {
+                    Top = 0;
+
+                    if (cenario == 0)
+                        cenario = 4;
+                    else if (cenario == 2)
+                        cenario = 0;
+                    naveInimigo = new NaveInimigo(Fundo, @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 3 – Caçador Gravitacional\CaçadorGravitacional0.png", this, 200, 4);
+                    Fundo.Load($@"Assets\GDD_Immeasurable Chasm Event Horizon\Fundo\fundo{cenario}.png");
                 }
             }
-
-            if (Input.KeyDown(Keys.W)) Top -= Speed;
-            if (Input.KeyDown(Keys.S)) Top += Speed;
-
         }
     }
 }

@@ -12,8 +12,10 @@ namespace Projeto_Space_War_V2_
         Entidade Alvo;
         PictureBox Fundo;
         int sent = 0;
-
-
+        string[] imagensInimigo = new string[]
+        {
+            @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio",
+        };
         public NaveInimigo(PictureBox fundo, string imagemNave, Entidade alvo, int hp, int tipoElemento) : base(fundo)
         {
             Fundo = fundo;
@@ -58,7 +60,7 @@ namespace Projeto_Space_War_V2_
                 sentidoInimigo = -sentidoInimigo;
                 sent++;
                 if (sent > 1) sent = 0;
-                Load(@"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio" + sent + ".png");
+                Load(imagensInimigo[animaCont] + sent + ".png");
             }
 
             tiroCont++;
