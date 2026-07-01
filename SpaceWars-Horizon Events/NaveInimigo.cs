@@ -12,9 +12,12 @@ namespace Projeto_Space_War_V2_
         Entidade Alvo;
         PictureBox Fundo;
         int sent = 0;
-        string[] imagensInimigo = new string[]
+        string[] imagensInimigo = 
         {
             @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 1 – Eco-do-Vazio\EcoVazio",
+            @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 2 – Sentinela Sombria\SentinelaSombria",
+            @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 3 – Caçador Gravitacional\CaçadorGravitacional",
+            @"Assets\GDD_Immeasurable Chasm Event Horizon\Personagens\Inimigo 4 – Executor do Horizonte\ExecutorHorizonte"
         };
         public NaveInimigo(PictureBox fundo, string imagemNave, Entidade alvo, int hp, int tipoElemento) : base(fundo)
         {
@@ -60,6 +63,7 @@ namespace Projeto_Space_War_V2_
                 sentidoInimigo = -sentidoInimigo;
                 sent++;
                 if (sent > 1) sent = 0;
+
                 Load(imagensInimigo[animaCont] + sent + ".png");
             }
 
